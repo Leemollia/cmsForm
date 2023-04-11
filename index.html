@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cmsForm</title>
+</head>
+
+<body>
+  <form id="form" action="">
+    <div class="component component--form uk-flex-gap-small">
+      <div data-form-container="">
+        <div data-form-step="">
+          <label>
+            <span>Active</span>
+            <input name="active" type="checkbox" checked="checked" />
+          </label>
+          <div data-form-toggle-container="">
+            <label>
+              <span>Holding</span>
+              <input name="holding_id" type="text" />
+            </label>
+          </div>
+          <div class="hide" data-form-toggle-container="">
+            <label>
+              <span>Company</span>
+              <input name="company_id" type="text" />
+            </label>
+          </div>
+        </div>
+
+        <div data-form-step="">
+          <label>
+            <span>Login</span>
+            <input name="Login" type="email" checked="checked" />
+          </label>
+          <div data-form-toggle-container="">
+            <label>
+              <span>Password</span>
+              <input name="password" type="password" />
+            </label>
+          </div>
+        </div>
+
+        <div data-form-multistep-buttons="">
+          <button data-form-multistep-prev-button="" id="prev-button" type="button">Назад</button>
+          <button data-form-multistep-next-button="" id="next-button" type="button">Далее</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/cmsForm.js"></script>
+  <script type="module">
+    import cmsForm from "/src/cmsForm.js";
+    
+    const formEl = document.querySelector('#form');
+    const Form = new cmsForm(formEl, {
+      modules: {
+        toggleElements: {
+          'active': 'password'
+        }
+      }
+    });
+
+    console.log(Form)
+  </script>
+</body>
+
+</html>
